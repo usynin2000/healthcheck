@@ -1,0 +1,19 @@
+services:
+  app:
+    build: ./app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: appdb
+      DB_USER: app
+      DB_PASSWORD: secret
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+    command: >
+      bash -c "sleep 5 && docker-entrypoint.sh postgres"
