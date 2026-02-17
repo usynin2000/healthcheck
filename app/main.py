@@ -24,7 +24,6 @@ def connect_to_db():
 logger.info("🚀 App container started")
 logger.info("⏳ Trying to connect to database...")
 
-# Попробуем подключаться в цикле пока база не будет готова
 while True:
     try:
         conn = connect_to_db()
